@@ -37,7 +37,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     private SendMessage sendMessage;
 
     // key: chat id, value: lvl
-    private final Map<Long, String> mapLastShowLvl = new HashMap<>();
     private static final Long FIRST_POST_ID = 1L;
     private static final Long SECOND_POST_ID = 2L;
 
@@ -78,19 +77,17 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     private void handleCallQuery(Update update) {
         String callBackData = update.getCallbackQuery().getData();
-        if (callBackData.equals("Show First Post")) {
-            showFirstPostUpdate(update);
-        } else if (callBackData.equals("Show Second Post")) {
-            showSecondPostUpdate(update);
-        } else if (callBackData.equals("Back to start menu")) {
-            handleBackToStartMenu(update);
+        switch (callBackData) {
+            case "Show First Post" -> showFirstPostUpdate(update);
+            case "Show Second Post" -> showSecondPostUpdate(update);
+            case "Back to start menu" -> handleBackToStartMenu(update);
         }
     }
 
     private void handleBackToStartMenu(Update update) {
         basicSettingSendMessage(update.getCallbackQuery().getMessage().getChatId(),
             "Please choose your level:");
-        sendMessage(Optional.of(telegramBotMenu.getMenuLevelUserQualification()));
+        sendMessage(Optional.of(telegramBotMenu.getMenuOfPosts()));
     }
 
     private void showPost(Long id, Update update) {
@@ -123,7 +120,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
         basicSettingSendMessage(chatId, postText);
         sendMessage.setParseMode(ParseMode.MARKDOWNV2);
-        sendMessage(Optional.of(telegramBotMenu.getBackToVacanciesMenu()));
+        sendMessage(Optional.of(telegramBotMenu.getMenuOfPosts()));
     }
 
 
@@ -150,7 +147,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         basicSettingSendMessage(chatId,
             "This is the first post:");
         showPost(FIRST_POST_ID, update);
-        mapLastShowLvl.put(chatId, "First Post");
     }
 
     private void showSecondPostUpdate(Update update) {
@@ -158,14 +154,13 @@ public class TelegramBot extends TelegramLongPollingBot {
         basicSettingSendMessage(chatId,
             "This is the second post:");
         showPost(SECOND_POST_ID, update);
-        mapLastShowLvl.put(chatId, "Second Post");
     }
 
     private void handleMessageReceived(Update update) {
         basicSettingSendMessage(update.getMessage().getChatId(),
             "Welcome to the " + telegramBotConfig.getUsername() + "! Please choose the post:");
         sendMessage(
-            Optional.of(telegramBotMenu.getMenuLevelUserQualification()));
+            Optional.of(telegramBotMenu.getMenuOfPosts()));
     }
 
     private void basicSettingSendMessage(Long id, String textMessage) {

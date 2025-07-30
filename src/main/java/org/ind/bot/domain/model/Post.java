@@ -1,11 +1,8 @@
 package org.ind.bot.domain.model;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
-@Setter
-@Getter
+@Data
 @Builder
 public class Post {
     private Long id;

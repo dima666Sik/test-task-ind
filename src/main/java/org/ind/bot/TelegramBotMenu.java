@@ -21,7 +21,7 @@ public class TelegramBotMenu {
         return keyboardMarkup;
     }
 
-    public ReplyKeyboard getMenuLevelUserQualification() {
+    public ReplyKeyboard getMenuOfPosts() {
         return createMenuReplyKeyboard(List.of(getBtnKeyboard("First Post", "Show First Post"),
                 getBtnKeyboard("Second Post", "Show Second Post")));
     }
@@ -31,11 +31,5 @@ public class TelegramBotMenu {
         inlineKeyboardButton.setText(textBtn);
         inlineKeyboardButton.setCallbackData(callbackData);
         return inlineKeyboardButton;
-    }
-
-    public ReplyKeyboard getBackToVacanciesMenu() {
-        return createMenuReplyKeyboard(List.of(getBtnKeyboard("Back to vacancies", "Back to vacancies"),
-                getBtnKeyboard("Generate With ChatGPT cover letter", "Generate With ChatGPT cover letter"),
-                getBtnKeyboard("Back to start menu", "Back to start menu")));
     }
 }
