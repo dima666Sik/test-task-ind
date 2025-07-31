@@ -1,0 +1,13 @@
+spring:
+  config:
+    import:
+      - .env[.properties]
+
+server:
+  port: 8080
+
+telegram:
+  bot:
+    access:
+      token: ${TELEGRAM_BOT_TOKEN}
+    username: ${TELEGRAM_BOT_USERNAME}

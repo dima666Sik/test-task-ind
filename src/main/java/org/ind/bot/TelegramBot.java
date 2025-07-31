@@ -7,7 +7,6 @@ import org.ind.bot.config.TelegramBotConfig;
 import org.ind.bot.exception.SendingMessageWasNotExecuted;
 import org.ind.bot.exception.SettingCommandWasNotExecuted;
 import org.ind.bot.service.PostService;
-import org.ind.bot.service.PostServiceImpl;
 import org.ind.bot.util.BotCommand;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -19,8 +18,6 @@ import org.telegram.telegrambots.meta.api.objects.commands.scope.BotCommandScope
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Optional;
 
 import static org.ind.bot.command.TelegramBotCommand.HELP;
@@ -40,7 +37,6 @@ public class TelegramBot extends TelegramLongPollingBot {
     private static final Long FIRST_POST_ID = 1L;
     private static final Long SECOND_POST_ID = 2L;
 
-
     @PostConstruct
     public void init() {
         try {
@@ -56,9 +52,9 @@ public class TelegramBot extends TelegramLongPollingBot {
 
     @Override
     public void onUpdateReceived(Update update) {
-
         if (update.hasMessage()) {
             if (update.getMessage().getText().equals(START.getCommand())) {
+                log.info("start command was received!");
                 handleMessageReceived(update);
             } else if (update.getMessage().getText().equals(HELP.getCommand())) {
                 handleCallHelp(update);
