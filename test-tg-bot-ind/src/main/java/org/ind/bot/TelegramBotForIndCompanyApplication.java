@@ -1,4 +1,4 @@
-package org.ind;
+package org.ind.bot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
