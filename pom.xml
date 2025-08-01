@@ -16,6 +16,7 @@
     <description>Test telegram bot for ind company</description>
     <modules>
         <module>test-tg-bot-ind</module>
+        <module>content-service</module>
     </modules>
     <properties>
         <java.version>17</java.version>
