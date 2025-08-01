@@ -7,5 +7,5 @@ Develop Telegram bot, add integration with Hugo to generate static pages based o
 
 1. For using this project, you need to start the tg-bot (or use your own tg bot). You can do it using the 'docker-compose up' command to start this container.
 > [!IMPORTANT]
-> Starting build image of Dockerfile. You can do it using the ```Dockerfile docker build -t NAME_OF_IMAGE .```
+> Starting build image of Dockerfile. You can do it using the ```md Dockerfile docker build -t NAME_OF_IMAGE .```
 2. 
