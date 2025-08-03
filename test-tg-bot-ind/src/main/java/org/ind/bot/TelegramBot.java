@@ -77,6 +77,7 @@ public class TelegramBot extends TelegramLongPollingBot {
             case "Show First Post" -> showFirstPostUpdate(update);
             case "Show Second Post" -> showSecondPostUpdate(update);
             case "Back to start menu" -> handleBackToStartMenu(update);
+            default -> log.error("Unknown command was received!");
         }
     }
 

@@ -12,7 +12,7 @@
     <artifactId>test-task-ind</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>telegram-bot-vacancies</name>
+    <name>test-task-ind</name>
     <description>Test telegram bot for ind company</description>
     <modules>
         <module>test-tg-bot-ind</module>
