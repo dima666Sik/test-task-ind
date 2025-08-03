@@ -19,6 +19,12 @@
     </properties>
 
     <dependencies>
+        <!-- https://mvnrepository.com/artifact/ca.denisab85/tdlib -->
+        <dependency>
+            <groupId>ca.denisab85</groupId>
+            <artifactId>tdlib</artifactId>
+            <version>v1.8.8-20221104</version>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
