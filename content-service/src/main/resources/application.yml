@@ -7,7 +7,9 @@ server:
   port: 8081
 
 telegram:
-  bot:
-    access:
-      token: ${TELEGRAM_BOT_TOKEN}
-    username: ${TELEGRAM_BOT_USERNAME}
+  client:
+    api-id: ${TELEGRAM_API_ID}
+    api-hash: ${TELEGRAM_API_HASH}
+    session-dir: ${TELEGRAM_SESSION_DIR}
+    data-dir: ${TELEGRAM_DATA_DIR}
+    download-dir: ${TELEGRAM_DOWNLOAD_DIR}
