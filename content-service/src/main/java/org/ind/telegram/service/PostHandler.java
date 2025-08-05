@@ -4,16 +4,13 @@ import it.tdlight.client.SimpleTelegramClient;
 import it.tdlight.jni.TdApi;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 @RequiredArgsConstructor
 public class PostHandler {
-
     private final TelegramService telegramService;
-    private final SimpleTelegramClient client;
 
-    public void onMessage(TdApi.UpdateNewMessage update) {
+    public void onMessage(TdApi.UpdateNewMessage update, SimpleTelegramClient client) {
         long chatId = update.message.chatId;
         TdApi.MessageContent content = update.message.content;
 

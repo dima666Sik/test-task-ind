@@ -19,6 +19,7 @@ import java.nio.file.Paths;
 @Log4j2
 public class TdLightConfig {
     private SimpleTelegramClient simpleTelegramClient;
+    private SimpleTelegramClientFactory simpleTelegramClientFactory;
     @Value("${telegram.client.api-id}")
     private Integer apiId;
     @Value("${telegram.client.api-hash}")
@@ -29,24 +30,30 @@ public class TdLightConfig {
     private String dataDir;
     @Value("${telegram.client.download-dir}")
     private String downloadDir;
+
     @PostConstruct
     public void init() throws UnsupportedNativeLibraryException {
         Init.init(); // Init native libs
     }
+
     @Bean
     public SimpleTelegramClientFactory simpleTelegramClientFactory() {
-        return new SimpleTelegramClientFactory();
+        simpleTelegramClientFactory = new SimpleTelegramClientFactory();
+        return simpleTelegramClientFactory;
     }
+
     @Bean
     public SimpleTelegramClient simpleTelegramClient(PostHandler postHandler, SimpleTelegramClientFactory factory) {
-        TDLibSettings settings = TDLibSettings.create(new APIToken(apiId, apiHash));
+        APIToken apiToken = new APIToken(apiId, apiHash);
+        TDLibSettings settings = TDLibSettings.create(apiToken);
         Path sessionPath = Paths.get(sessionDir);
         settings.setDatabaseDirectoryPath(sessionPath.resolve(dataDir));
         settings.setDownloadedFilesDirectoryPath(sessionPath.resolve(downloadDir));
 
         SimpleTelegramClientBuilder builder = factory.builder(settings);
 
-        builder.addUpdateHandler(TdApi.UpdateNewMessage.class, postHandler::onMessage);
+        builder.addUpdateHandler(TdApi.UpdateNewMessage.class, updateNewMessage ->
+            postHandler.onMessage(updateNewMessage, simpleTelegramClient));
         builder.addUpdateHandler(TdApi.UpdateAuthorizationState.class, this::onAuthUpdate);
 
         simpleTelegramClient = builder.build(AuthenticationSupplier.consoleLogin());
@@ -63,5 +70,6 @@ public class TdLightConfig {
     @PreDestroy
     public void shutdown() {
         simpleTelegramClient.sendClose();
+        simpleTelegramClientFactory.close();
     }
 }
