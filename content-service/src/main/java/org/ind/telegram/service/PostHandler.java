@@ -3,11 +3,14 @@ package org.ind.telegram.service;
 import it.tdlight.client.SimpleTelegramClient;
 import it.tdlight.jni.TdApi;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
 public class PostHandler {
+    @Value("${telegram.bot.username}")
+    private String telegramBotUsername;
     private final TelegramService telegramService;
 
     public void onMessage(TdApi.UpdateNewMessage update, SimpleTelegramClient client) {
@@ -19,10 +22,7 @@ public class PostHandler {
         client.send(new TdApi.GetChat(chatId)).whenCompleteAsync((chat, ex) -> {
             if (ex != null) return;
 
-            String chatTitle = chat.title;
-            if ("MyChannelName".equals(chatTitle)) {
-                telegramService.handleNewPost(chatTitle, msgText.text.text);
-            }
+            telegramService.handleNewPost(telegramBotUsername, msgText.text.text);
         });
     }
 }

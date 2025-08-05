@@ -13,3 +13,5 @@ telegram:
     session-dir: ${TELEGRAM_SESSION_DIR}
     data-dir: ${TELEGRAM_DATA_DIR}
     download-dir: ${TELEGRAM_DOWNLOAD_DIR}
+  bot:
+    username: ${TELEGRAM_BOT_USERNAME}

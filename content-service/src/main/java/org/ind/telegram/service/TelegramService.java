@@ -8,6 +8,6 @@ import org.springframework.stereotype.Service;
 public class TelegramService {
 
     public void handleNewPost(String chatTitle, String text) {
-       log.info("New post from %s: %s%n", chatTitle, text);
+        log.info("New post from {}: {}", chatTitle, text);
     }
 }

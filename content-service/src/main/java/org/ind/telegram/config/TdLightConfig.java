@@ -44,7 +44,9 @@ public class TdLightConfig {
 
     @Bean
     public SimpleTelegramClient simpleTelegramClient(PostHandler postHandler, SimpleTelegramClientFactory factory) {
-        APIToken apiToken = new APIToken(apiId, apiHash);
+        // change it on real data... and turn APIToken.example() into new APIToken(apiId, apiHash);
+        APIToken apiToken = APIToken.example();
+
         TDLibSettings settings = TDLibSettings.create(apiToken);
         Path sessionPath = Paths.get(sessionDir);
         settings.setDatabaseDirectoryPath(sessionPath.resolve(dataDir));
