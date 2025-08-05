@@ -5,10 +5,10 @@ Develop Telegram bot, add integration with Hugo to generate static pages based o
 3. This markdown file will be added to the Hugo.
 
 
-1. For using this project, you need to start the tg-bot (or use your own tg bot). You can do it using the 'docker-compose up' command to start this container.
+1. For using this project, you need to start the tg-bot (or use your own tg bot). 
+You can do it using the 'docker-compose up' command to start this container.
 > [!IMPORTANT]
-> Starting build image of Dockerfile. You can do it using the 
->```md 
->Dockerfile docker build -t NAME_OF_IMAGE .
->```
+> <br>Please find your bot token and use it in the second module of app. 
+> You should to input in console (in current implementation)
+> it can be changed... <br>After it your <b>Telegram Client</b> will be able to read the messages from bot.
 2. 
