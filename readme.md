@@ -39,3 +39,7 @@ git submodule add https://github.com/theNewDynamic/gohugo-theme-ananke.git theme
 docker-compose up --build
 ```
 
+## Example of work
+As you can see on the pictures, we have created posts via Telegram and automatically get the static pages from Hugo about these posts.
+![Tg bot](git-img/tg-bot-img.png)
+![Hugo site](git-img/hugo-site-img.png)
