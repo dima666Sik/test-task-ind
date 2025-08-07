@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class PostHandler {
     @Value("${telegram.bot.username}")
     private String telegramBotUsername;
-    private final TelegramService telegramService;
+    private final HugoService hugoService;
 
     public void onMessage(TdApi.UpdateNewMessage update, SimpleTelegramClient client) {
         long chatId = update.message.chatId;
@@ -22,7 +22,7 @@ public class PostHandler {
         client.send(new TdApi.GetChat(chatId)).whenCompleteAsync((chat, ex) -> {
             if (ex != null) return;
 
-            telegramService.handleNewPost(telegramBotUsername, msgText.text.text);
+            hugoService.handleNewPost(telegramBotUsername, msgText.text.text);
         });
     }
 }

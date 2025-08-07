@@ -15,3 +15,6 @@ telegram:
     download-dir: ${TELEGRAM_DOWNLOAD_DIR}
   bot:
     username: ${TELEGRAM_BOT_USERNAME}
+
+hugo:
+  path-to-content-directory: ${HUGO_PATH_TO_CONTENT_DIRECTORY}

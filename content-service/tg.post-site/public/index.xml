@@ -9,11 +9,25 @@
     <lastBuildDate>Thu, 07 Aug 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Journey to Mars</title>
+      <link>http://localhost:1313/new-post147/</link>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/new-post147/</guid>
+      <description>&lt;p&gt;Title: Journey to Mars&lt;/p&gt;&#xA;&lt;p&gt;Summary: Exploring the possibilities of Mars colonization&lt;/p&gt;&#xA;&lt;p&gt;Content: This article dives deep into the technological, biological, and logistical challenges of building a human colony on Mars.&lt;/p&gt;&#xA;&lt;p&gt;Author: Elena Starsky&lt;/p&gt;&#xA;&lt;p&gt;Tags: space, mars, colonization&lt;/p&gt;&#xA;&lt;p&gt;Source: Click to read more&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Test Post</title>
       <link>http://localhost:1313/new-post/</link>
       <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/new-post/</guid>
       <description>&lt;p&gt;This is a test post.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The Mystery of Black Holes</title>
+      <link>http://localhost:1313/new-post111/</link>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/new-post111/</guid>
+      <description>&lt;p&gt;Title: The Mystery of Black Holes&lt;/p&gt;&#xA;&lt;p&gt;Summary: Understanding the universe&amp;rsquo;s most enigmatic objects&lt;/p&gt;&#xA;&lt;p&gt;Content: Black holes are regions of spacetime where gravity is so intense that nothing can escape. This article explains the science and myths behind them.&lt;/p&gt;&#xA;&lt;p&gt;Author: Neil Nova&lt;/p&gt;&#xA;&lt;p&gt;Tags: space, black holes, astrophysics&lt;/p&gt;&#xA;&lt;p&gt;Source: Click to read more&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
