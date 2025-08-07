@@ -11,7 +11,8 @@ You can do it using the 'docker-compose up' command to start this container.
 > Please find your bot token and use it in the second module of app. 
 > You should input in console (in current implementation)
 > it can be changed... <br>After it your <b>Telegram Client</b> will be able to read the messages from bot.
-2. Only after Hugo container will be started, you can try to get converted posts from telegram and turn them in md format that will be added into this directory: `hugo-site/content/posts/`.
+2. Only after Hugo container will be started, you can try to get converted posts from 
+telegram and turn them in md format that will be added into this directory: `hugo-site/content/`.
 ___
 
 This instruction can be needed if someone want to add hugo inside implementation yourself:
